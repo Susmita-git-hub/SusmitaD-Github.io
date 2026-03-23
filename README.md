@@ -1,75 +1,88 @@
-# Susmita Das | Strategic Project Specialist & MBA
+CAISO Constraint Navigator – Resource 200952
+🚀 Project Overview
+The CAISO Constraint Navigator is an AI-driven "Predictive Guardrail" designed for real-time energy market operations. It solves the critical issue of MW-Locking system errors by automatically detecting and correcting market bids that violate physical asset constraints (PMax) or ramp limits before they reach the CAISO API.
 
-A results-driven **Project Manager** and **Business Systems Analyst** with over 5 years of experience leading large-scale enterprise deliveries and high-stakes system implementations. Expert in overseeing end-to-end project lifecycles, managing cross-functional teams, and delivering complex infrastructure solutions within strict scope, timeline, and budget constraints.
+This project demonstrates the intersection of AI Operational Integrity, automated governance, and high-frequency energy trading.
 
------
+🛠️ Tech Stack
+Core Logic: Python / AI-driven validation logic
 
-## 🚀 Professional Summary
+ETRM/Market Interface: OATI ETRM, CAISO API
 
-  * **Strategic Leadership:** Proven track record in managing complex enterprise deliveries, including grid modernization and SAP S/4HANA migrations.
-  * **AI & Innovation:** Expert at leveraging AI-enabled productivity tools and generative AI to drive operational transparency and network deployment efficiency.
-  * **Risk & Governance:** Specialist in resource allocation, risk mitigation (RAID), and executive-level reporting in fast-paced, customer-facing environments.
+Data Inputs: SCADA Telemetry, Dispatch Operating Target (DOT) data
 
------
+Visualization & Analytics: Power BI, Draw.io
 
-## 🛠 Technical Skills & Expertise
+Data Format: XML (Market Submission Payloads)
 
-### **Core Competencies**
+⚠️ The Challenge: MW-Locking Synchronization Failure
+In high-velocity Real-Time (RT) markets, legacy ETRM systems often fail to reconcile trade requests with actual physical telemetry.
 
-  * **Utility Domain:** Transmission & Distribution (T\&D), Grid Modernization, ETRM, SCADA Telemetry, and NERC/Market Compliance.
-  * **Project Leadership:** End-to-End SDLC, Agile/Scrum, Resource Allocation, and Budget Tracking.
-  * **Digital Transformation:** AI-Enabled Predictive Guardrails, Data Integrity Automation, and Process Mapping.
+The Scenario:
 
-### **Toolbox**
+Request: RT bid submission of 165 MW.
 
-| Category | Tools/Software |
-| :--- | :--- |
-| **Project Management** | Microsoft Project, Jira, MS Excel (Advanced) |
-| **Data & Visualization** | Power BI, Visio, Draw.io |
-| **Enterprise Systems** | SAP S/4HANA, SAP HCM |
-| **AI & Emerging Tech** | Prompt Engineering, Predictive Risk Modeling |
+Physical PMax: 155 MW.
 
------
+Ramp Constraint: Base DOT (140 MW) + 5-min ramp capability (15 MW) = 155 MW max.
 
-## 💼 Professional Experience
+Risk: Invalid bid rejection by CAISO, leading to imbalance penalties and operational non-compliance.
 
-### **Open Access Technology International Inc. (OATI)** | *Project Manager – Utilities Enterprise Delivery*
+🧠 AI Solution & Workflow
+The AI Sentinel acts as an intermediary layer between the trade desk and the market API.
 
-**04/2024 – 01/2026**
+1. Constraint Analysis
+The system performs a dual-check on every outbound payload:
 
-  * **Grid Modernization:** Led cross-functional workstreams for T\&D software deployments, ensuring 100% market compliance for real-time energy trading.
-  * **AI Innovation:** Engineered a **Predictive AI Guardrail** using Generative AI to automate payload validation and intercept "MW-Locking" bugs.
-  * **System Integration:** Architected integration timelines for field service and market operations, maintaining **99.9% system uptime**.
-  * **Stakeholder Management:** Facilitated weekly governance meetings with utility executives, translating technical telemetry data into project health reports.
+PMax Check: Compares trade volume against the resource's static maximum capacity.
 
-### **Leading Solutions LLC** | *Business Systems Analyst*
+Dynamic Ramp Check: Calculates the maximum achievable MW based on current telemetry (DOT + Ramp Rate).
 
-**08/2023 – 01/2024**
+2. Auto-Correction Logic
+If a violation is detected, the AI calculates the Maximum Achievable MW (in this case, 155 MW) and regenerates the submission payload automatically.
 
-  * **Process Optimization:** Managed CRM/FSM implementations for clinical outreach, boosting field agent productivity by **15%**.
-  * **Quality Assurance:** Led User Acceptance Testing (UAT) for mobile field applications to align technical requirements with operational realities.
+3. Automated Output
+The system generates two primary outputs:
 
-### **Infosys BPM Ltd.** | *Senior Process Executive (Enterprise Asset Management)*
+Corrected XML Payload: A CAISO-compliant submission.
 
-**01/2018 – 06/2019**
+Internal Audit Log: A detailed record for compliance and post-trade analysis.
 
-  * **ERP Migration:** Streamlined data workflows for massive utility-scale **SAP S/4HANA** migrations.
-  * **Dashboards:** Developed real-time **Power BI** dashboards to track migration costs and data accuracy.
+📄 Implementation Examples
+Corrected Submission (XML)
+XML
+<Bid_Submission resource="200952">
+  <Market_Interval_ID>RT_5MIN_20260311_1115</Market_Interval_ID>
+  <Bid_Details>
+    <MW_Quantity units="MW">155</MW_Quantity>
+    <DOT_Reference>140</DOT_Reference>
+    <Validation_Status>AI_CORRECTED</Validation_Status>
+  </Bid_Details>
+  <Constraint_Check>
+    <PMax_Limit>155</PMax_Limit>
+    <Ramp_Compliance>PASS</Ramp_Compliance>
+  </Constraint_Check>
+</Bid_Submission>
+Internal Audit Log Entry
+Log ID: RT-200952-AUTOFIX
 
------
+Event: MW-Locking Synchronization Failure
 
-## 📜 Certifications
+Observation: Trade requested 165 MW, exceeding Resource PMax and 5-minute ramp limit (155 MW).
 
-  * **Google AI Essentials** (2026)
-  * **ECBA** (Entry Certificate in Business Analysis)
-  * **Lean Six Sigma White Belt**
+Action: AI Sentinel intercepted and auto-corrected the submission to 155 MW.
 
------
+Result: Prevented potential market rejection and mitigated imbalance risk.
 
-## 📫 Connect with Me
+📈 Project Outcomes & Impact
+100% Compliance: Guaranteed MW submission alignment with physical and ramp constraints.
 
-  * **Location:** Shakopee, MN
-  * **LinkedIn:** [linkedin.com/in/susmitadas02](https://www.google.com/search?q=https://linkedin.com/in/susmitadas02)
-  * **Email:** saha.susmitadas@gmail.com
+Risk Mitigation: Eliminated financial penalties associated with rejected bids and "uninstructed" imbalances.
 
------
+Operational Efficiency: Drastically reduced the need for manual human monitoring of telemetry vs. trade entries.
+
+Scalable Governance: Established a blueprint for AI-driven operational risk management in energy trading.
+
+Role: AI Operational Integrity Consultant / Prompt Engineer
+
+Duration: Real-Time Energy Market Submission (RT) Support
