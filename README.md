@@ -1,5 +1,7 @@
 CAISO Constraint Navigator – Resource 200952
+
 🚀 Project Overview
+
 The CAISO Constraint Navigator is an AI-driven "Predictive Guardrail" designed for real-time energy market operations. It solves the critical issue of MW-Locking system errors by automatically detecting and correcting market bids that violate physical asset constraints (PMax) or ramp limits before they reach the CAISO API.
 
 This project demonstrates the intersection of AI Operational Integrity, automated governance, and high-frequency energy trading.
