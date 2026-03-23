@@ -52,21 +52,8 @@ Internal Audit Log: A detailed record for compliance and post-trade analysis.
 
 📄 Implementation Examples
 Corrected Submission (XML)
-XML
-<Bid_Submission resource="200952">
-  <Market_Interval_ID>RT_5MIN_20260311_1115</Market_Interval_ID>
-  <Bid_Details>
-    <MW_Quantity units="MW">155</MW_Quantity>
-    <DOT_Reference>140</DOT_Reference>
-    <Validation_Status>AI_CORRECTED</Validation_Status>
-  </Bid_Details>
-  <Constraint_Check>
-    <PMax_Limit>155</PMax_Limit>
-    <Ramp_Compliance>PASS</Ramp_Compliance>
-  </Constraint_Check>
-</Bid_Submission>
-Internal Audit Log Entry
-Log ID: RT-200952-AUTOFIX
+<img width="370" height="1350" alt="image" src="https://github.com/user-attachments/assets/12606f6d-0c67-4701-be56-e8e29108fa78" />
+
 
 Event: MW-Locking Synchronization Failure
 
