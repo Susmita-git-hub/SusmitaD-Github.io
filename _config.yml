@@ -1,5 +1,5 @@
 remote_theme: pages-themes/cayman@v0.2.0
 plugins:
 - jekyll-remote-theme # add this line to the plugins list if you already have one
-title: Susmita Das
-description: [Resume]
+title: CAISO Constraint Navigator 
+description: Automatically detect and correct MW-Locking system errors in real-time to submitt CAISO market bids.
