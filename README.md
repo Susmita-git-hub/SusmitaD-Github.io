@@ -1,4 +1,4 @@
-CAISO Constraint Navigator – Resource 200952
+CAISO Market Bid Submission
 
 🚀 Project Overview
 
